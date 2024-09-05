@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação de Material</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Solicitação de Material</h1>
+
+        <!-- Abas -->
+        <div class="tabs">
+            <button onclick="openTab('geral')">Geral</button>
+            <button onclick="openTab('materiaisTab')">Materiais</button>            
+        </div>
+
+        <!-- Aba Geral -->
+        <div id="geral" class="tab-content active">
+            <!-- Formulário Geral -->
+            <div class="form-group">
+                <!-- Seleção de Contrato e matrícula -->
+                <div class="form-row">
+                    <div class="form-element">
+                        <label for="contract">Contrato</label>
+                        <!-- <select id="contract" onchange="loadMateriais()">-->
+                        <select id="contract">                            
+                            <option value="corte">Corte</option>
+                            <option value="fiscalizacao">Fiscalização</option>
+                            <option value="ligacao_nova">Ligação Nova</option>
+                            <option value="plantao">Plantão</option>
+                        </select>
+                    </div>
+
+                    <div class="form-element">
+                        <label for="grupo">Grupo</label>
+                        <!-- <select id="grupo" onchange="loadMateriais()">-->
+                        <select id="grupo">
+                            <option value="epc">EPC</option>
+                            <option value="epi">EPI</option>
+                        </select>
+                    </div>     
+                    <div class="form-element">
+                        <label for="matricula">Matrícula</label>
+                        <input type="text" id="matricula" placeholder="Informe sua matrícula">
+                    </div>
+                </div>
+                <div class="form-element">
+                    <label for="totalAdded">Qtde materiais solicitados</label>
+                    <span id="totalAdded" class="totalquantity">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aba Materiais -->
+        <div id="materiaisTab" class="tab-content">
+            <div class="form-row">
+                <div class="form-element">
+                    <input type="text" id="search" class="input-large" placeholder="Pesquisar material" maxlength="100" oninput="handleInput()">
+                </div>
+            </div>
+            <!-- Lista de Materiais -->
+            <div id="materialList" class="material-list">
+                <!-- Lista de materiais será carregada aqui -->
+            </div>
+        </div>
+
+        <!-- Visualização do Pedido -->
+        <!-- <div id="pedidoView" class="tab-content" style="display:none;"> -->
+            <!-- A visualização do pedido será gerada aqui -->
+        <!-- </div> -->
+
+        <!-- Ações -->
+        <div class="actions">
+            <button onclick="window.location.href='index.html'" class="back">Voltar ao Menu</button>
+            <button onclick="finalizeRequest()" class="finalize">Finalizar Solicitação</button>
+            <button onclick="zerarContador()" class="finalize">Limpar seleção</button>
+        </div>
+    </div>
+
+    <!-- Frame de Informações Adicionais 
+    <div id="addInfoFrame" class="add-info-frame" style="display:none;">
+        <h3>Informações Adicionais</h3>
+        <div class="form-element">
+            <label for="motivo">Motivo</label>
+            <select id="motivo">
+                <option value="perda">1 - Perda</option>
+                <option value="troca">2 - Troca por desgaste</option>
+                <option value="roubo">3 - Roubo ou Furto</option>
+                <option value="incremento">4 - Incremento</option>
+            </select>
+        </div>
+  
+        <div class="form-element">
+            <label for="gallery">Acessar Galeria</label>
+            <input type="file" id="gallery" accept="image/*">
+        </div>
+
+        <div class="form-element">
+            <button onclick="capturePhoto()">Tirar Foto</button>
+        </div>
+
+        <div class="form-element">
+            <button onclick="closeAddInfoFrame()">Fechar</button>
+        </div>
+    </div>
+    -->
+    <script src="scripts.js"></script>
+</body>
+</html>
